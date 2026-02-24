@@ -8,8 +8,8 @@
 :root {
   --background: #020202;
   --foreground: #ffffff;
-  --forge-orange: #FF5F1F;
-  --forge-orange-dim: #92340d;
+  --forge-gold: #D4AF37;
+  --forge-gold-dim: #92750d;
   --forge-gray-deep: #0a0a0a;
   --forge-gray-glow: #111111;
   --forge-steel: #1a1a1a;
@@ -19,8 +19,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-forge-orange: var(--forge-orange);
-  --color-forge-orange-dim: var(--forge-orange-dim);
+  --color-forge-gold: var(--forge-gold);
+  --color-forge-gold-dim: var(--forge-gold-dim);
   --color-forge-deep: var(--forge-gray-deep);
   --color-forge-glow: var(--forge-gray-glow);
   --color-forge-steel: var(--forge-steel);
@@ -64,27 +64,27 @@ h4,
 .glass {
   background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .chrome-border {
   border: 1px solid;
-  border-image-source: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
+  border-image-source: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(212, 175, 55, 0.3) 100%);
   border-image-slice: 1;
 }
 
 .forge-glow {
-  box-shadow: 0 0 50px rgba(255, 95, 31, 0.08);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.1);
 }
 
 .forge-text-glow {
-  text-shadow: 0 0 20px rgba(255, 95, 31, 0.5);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .liquid-gradient {
-  background: linear-gradient(135deg, #FF5F1F 0%, #FF8C00 50%, #FF4500 100%);
-  filter: brightness(1.2) contrast(1.1);
+  background: linear-gradient(135deg, #D4AF37 0%, #F9E076 50%, #C5A028 100%);
+  filter: brightness(1.1) contrast(1.1);
 }
 
 .mask-fade {
