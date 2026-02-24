@@ -151,7 +151,7 @@ export default function LandingPage() {
                     </div>
 
                     {/* Top Content (Badge) */}
-                    <div className="relative z-20 mx-auto w-full max-w-7xl px-6 text-center pt-8">
+                    <div className="absolute top-[12vh] left-0 right-0 z-20 mx-auto w-full max-w-7xl px-6 text-center">
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
