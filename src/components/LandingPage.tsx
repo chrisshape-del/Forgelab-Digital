@@ -131,7 +131,7 @@ export default function LandingPage() {
 
             <main className="relative">
                 {/* Cyberpunk Hero Section */}
-                <section className="relative flex min-h-[100svh] flex-col items-center justify-end overflow-hidden bg-background pb-20 pt-32">
+                <section className="relative flex min-h-[100svh] flex-col items-center justify-start overflow-hidden bg-background pb-20 pt-[18vh]">
 
                     {/* The Full Background Logo - Blended seamlessly */}
                     <div className="absolute inset-0 z-0 bg-background">
@@ -145,17 +145,17 @@ export default function LandingPage() {
                         {/* Heavy vignette to blend edges into the deep navy background */}
                         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 30%, #0A1933 100%)' }} />
                         {/* Bottom fade for readability and seamless transition */}
-                        <div className="absolute bottom-0 h-[60vh] w-full bg-gradient-to-t from-background via-background/90 to-transparent" />
-                        {/* Top fade for nav */}
-                        <div className="absolute top-0 h-32 w-full bg-gradient-to-b from-background to-transparent" />
+                        <div className="absolute bottom-0 h-[40vh] w-full bg-gradient-to-t from-background via-background/80 to-transparent" />
+                        {/* Top fade for nav and new text position */}
+                        <div className="absolute top-0 h-[50vh] w-full bg-gradient-to-b from-background/90 via-background/40 to-transparent" />
                     </div>
 
-                    {/* Subtitle & CTAs (Overlaid at the bottom) */}
+                    {/* Subtitle & CTAs (Overlaid at the top) */}
                     <div className="relative z-20 mx-auto max-w-7xl px-6 text-center">
                         <div className="absolute left-1/2 top-1/2 -z-10 h-[300px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-forge-neon-blue/10 blur-[100px]" />
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
                         >
