@@ -112,60 +112,51 @@ export default function LandingPage() {
 
             <main className="relative">
                 {/* Cinematic Hero Section */}
-                <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden metallic-bg pt-20">
-                    {/* Spotlights */}
-                    <div className="spotlight left" />
-                    <div className="spotlight right" />
+                <section className="relative flex min-h-[100svh] flex-col items-center justify-end overflow-hidden bg-background pb-24 pt-32">
 
-                    {/* Dark ambient glow */}
-                    <div className="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-forge-gold/5 blur-[150px]" />
+                    {/* The Full Background Logo - Blended seamlessly */}
+                    <div className="absolute inset-0 z-0 bg-[#020202]">
+                        <Image
+                            src="/logo.png"
+                            alt="Forgelab Digital"
+                            fill
+                            priority
+                            className="object-cover object-center opacity-90"
+                        />
+                        {/* Heavy vignette to blend edges into the background */}
+                        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 30%, #020202 85%)' }} />
+                        {/* Bottom fade for readability and seamless transition */}
+                        <div className="absolute bottom-0 h-1/2 w-full bg-gradient-to-t from-background via-background/80 to-transparent" />
+                        {/* Top fade for nav */}
+                        <div className="absolute top-0 h-32 w-full bg-gradient-to-b from-background to-transparent" />
+                    </div>
 
-                    <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
+                    {/* Subtitle & CTAs (Overlaid at the bottom) */}
+                    <div className="relative z-20 mx-auto max-w-7xl px-6 text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}
+                            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
                         >
-                            {/* Central Logo Integration */}
-                            <div className="mb-8 flex justify-center">
-                                <motion.div
-                                    initial={{ scale: 0.9, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    transition={{ duration: 1.5, delay: 0.3 }}
-                                    className="relative h-64 w-64 md:h-96 md:w-96"
-                                >
-                                    {/* The glow coming FROM the logo */}
-                                    <div className="absolute inset-0 rounded-full bg-forge-gold/20 blur-[80px]" />
-                                    <Image
-                                        src="/logo.png"
-                                        alt="Forgelab Digital Logo"
-                                        fill
-                                        priority
-                                        className="relative z-10 object-contain drop-shadow-[0_0_50px_rgba(212,175,55,0.6)]"
-                                    />
-                                </motion.div>
+                            {/* Screen reader only H1 for SEO, since the logo image has the text */}
+                            <h1 className="sr-only">FORGELAB DIGITAL</h1>
+
+                            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-forge-gold/20 bg-black/40 backdrop-blur-md px-6 py-2 text-xs font-bold uppercase tracking-widest text-forge-gold">
+                                <Sparkles size={14} /> <span>Forging Digital Legacies</span>
                             </div>
 
-                            {/* Metallic Brand Name */}
-                            <h1 className="mb-6 font-sora text-5xl font-black uppercase tracking-[0.2em] md:text-7xl lg:text-8xl">
-                                <span className="chrome-text">FORGELAB DIGITAL</span>
-                            </h1>
-
-                            <p className="mx-auto mb-12 max-w-2xl text-lg text-gray-400/90 leading-relaxed">
+                            <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-300 leading-relaxed drop-shadow-lg">
                                 The laboratory where high-performance systems and market-dominating
                                 identities are hammered into reality.
                             </p>
 
                             <div className="flex justify-center gap-6">
-                                <button className="rounded-sm bg-forge-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all hover:bg-forge-gold-dim active:scale-95 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                                <button className="rounded-sm bg-forge-gold px-12 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all hover:bg-forge-gold-dim active:scale-95 shadow-[0_0_30px_rgba(212,175,55,0.2)]">
                                     Enter the Lab
                                 </button>
                             </div>
                         </motion.div>
                     </div>
-
-                    {/* Floor reflection gradient */}
-                    <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-black to-transparent" />
                 </section>
 
                 {/* Services Section */}
