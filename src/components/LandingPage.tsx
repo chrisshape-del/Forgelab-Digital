@@ -2,15 +2,34 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Hammer, Sparkles, Binary, Zap, ExternalLink } from "lucide-react";
+import { Hammer, Sparkles, Binary, Zap, ExternalLink, Cpu, BarChart3, Rocket, Layers, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+
+const ServiceCard = ({ title, description, icon: Icon }: any) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="group relative overflow-hidden rounded-2xl border border-white/5 bg-forge-deep/50 p-8 transition-all hover:bg-forge-glow"
+    >
+        <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-forge-orange/5 blur-2xl group-hover:bg-forge-orange/10" />
+        <div className="relative z-10">
+            <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-forge-orange/10 text-forge-orange transition-transform group-hover:scale-110">
+                <Icon size={24} />
+            </div>
+            <h3 className="mb-3 text-2xl font-bold font-sora tracking-tight">{title}</h3>
+            <p className="text-gray-400 leading-relaxed">{description}</p>
+        </div>
+    </motion.div>
+);
 
 const BrandCard = ({ title, description, link, icon: Icon, glowColor }: any) => (
     <motion.div
         whileHover={{ y: -5, scale: 1.02 }}
         className="group relative overflow-hidden rounded-2xl border border-white/5 bg-forge-deep p-8 transition-all hover:bg-forge-glow"
     >
-        <div className={cn("absolute -right-4 -top-4 h-32 w-32 rounded-full opacity-10 blur-3xl transition-opacity group-hover:opacity-20", glowColor)} />
+        <div className={cn("absolute -right-4 -top-4 h-32 w-32 rounded-full opacity-10 blur-3xl transition-opacity group-hover:opacity-25", glowColor)} />
         <div className="relative z-10">
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-forge-orange">
                 <Icon size={24} />
@@ -31,99 +50,207 @@ export default function LandingPage() {
     const brands = [
         {
             title: "forgr.nl",
-            description: "Our signature platform for digital craftsmanship and innovation. The first major forge project.",
+            description: "Dedicated platform for custom digital builds and artisanal software engineering.",
             link: "https://forgr.nl",
             icon: Binary,
             glowColor: "bg-blue-500",
         },
         {
             title: "Forgeflow",
-            description: "Next-gen content multiplication and AI workflow automation. Scaling creativity at speed.",
+            description: "High-velocity AI content multiplication and autonomous marketing workflows.",
             link: "#",
             icon: Zap,
             glowColor: "bg-forge-orange",
         },
         {
             title: "The Crucible",
-            description: "Where experimental technologies are tested and refined before joining the laboratory ecosystem.",
+            description: "R&D laboratory for emerging technologies, experimental AI, and beta products.",
             link: "#",
             icon: Sparkles,
             glowColor: "bg-purple-500",
         },
     ];
 
+    const services = [
+        {
+            title: "AI & Automation",
+            description: "We forge autonomous agents and intelligent workflows that replace manual overhead with liquid speed.",
+            icon: Cpu,
+        },
+        {
+            title: "Digital Strategy",
+            description: "Architecting the blueprint for market dominance through data-driven decisions and lab-tested formulas.",
+            icon: BarChart3,
+        },
+        {
+            title: "Product Forging",
+            description: "Turning raw concepts into premium digital products with high-end UX and resilient architecture.",
+            icon: Rocket,
+        },
+        {
+            title: "Brand Ecosystems",
+            description: "Building connected networks of brands that feed into each other, creating a self-sustaining powerhouse.",
+            icon: Layers,
+        },
+    ];
+
     return (
         <div className="min-h-screen bg-background text-foreground selection:bg-forge-orange/30">
-            {/* Navigation placeholder */}
+            {/* Header / Nav */}
             <nav className="fixed top-0 z-50 w-full border-b border-white/5 bg-background/80 backdrop-blur-md">
-                <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-                    <div className="flex items-center gap-2 font-sora text-xl font-bold tracking-tighter">
-                        <div className="h-6 w-6 rounded bg-forge-orange" />
-                        FORGELAB<span className="text-forge-orange">DIGITAL</span>
+                <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+                    <div className="flex items-center gap-3 font-sora text-xl font-bold tracking-tighter">
+                        <div className="relative h-10 w-10 overflow-hidden rounded-lg bg-forge-chrome/50">
+                            <Image src="/logo.png" alt="Forgelab Logo" fill className="object-cover" />
+                        </div>
+                        <span className="hidden sm:inline">FORGELAB <span className="text-forge-orange">DIGITAL</span></span>
+                    </div>
+                    <div className="flex gap-8 text-sm font-medium text-gray-400">
+                        <a href="#services" className="transition-colors hover:text-forge-orange">Expertise</a>
+                        <a href="#ecosystem" className="transition-colors hover:text-forge-orange">Brands</a>
+                        <a href="#process" className="transition-colors hover:text-forge-orange">Process</a>
                     </div>
                 </div>
             </nav>
 
-            <main className="relative pt-32 pb-20">
-                {/* Background Gradients */}
-                <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-                    <div className="absolute left-1/2 top-0 h-[500px] w-[1000px] -translate-x-1/2 rounded-full bg-forge-orange/5 blur-[120px]" />
-                </div>
-
+            <main className="relative">
                 {/* Hero Section */}
-                <section className="mx-auto max-w-7xl px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center"
-                    >
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-forge-orange/20 bg-forge-orange/5 px-4 py-1.5 text-sm font-medium text-forge-orange">
-                            <Hammer size={16} /> <span>Forging the Digital Future</span>
-                        </div>
-                        <h1 className="mx-auto mb-8 max-w-4xl font-sora text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-                            Elevating Brands through <br />
-                            <span className="forge-text-glow bg-gradient-to-r from-forge-orange to-orange-400 bg-clip-text text-transparent">
-                                Digital Alchemy
-                            </span>
-                        </h1>
-                        <p className="mx-auto mb-12 max-w-2xl text-lg text-gray-400">
-                            Forgelab Digital is the mother agency of a growing ecosystem of specialized brands.
-                            We refine raw data and creative vision into high-performance digital masters.
-                        </p>
-                    </motion.div>
+                <section className="relative overflow-hidden pt-48 pb-32">
+                    <div className="pointer-events-none absolute left-1/2 top-40 h-[600px] w-[1200px] -translate-x-1/2 rounded-full bg-forge-orange/10 blur-[150px]" />
+
+                    <div className="mx-auto max-w-7xl px-6 text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-forge-orange/30 bg-forge-orange/10 px-6 py-2 text-xs font-bold uppercase tracking-widest text-forge-orange">
+                                <Sparkles size={14} /> <span>The Mother Agency for Digital Mastery</span>
+                            </div>
+                            <h1 className="mx-auto mb-8 max-w-5xl font-sora text-6xl font-bold leading-[1.1] tracking-tight md:text-8xl">
+                                Forging the Next <br />
+                                <span className="forge-text-glow bg-gradient-to-r from-forge-orange via-orange-400 to-amber-500 bg-clip-text text-transparent">
+                                    Era of Innovation.
+                                </span>
+                            </h1>
+                            <p className="mx-auto mb-12 max-w-2xl text-xl text-gray-400/90 leading-relaxed">
+                                We are the laboratory where data, AI, and raw creative vision are hammered into market-dominating identities.
+                                Beyond websites. Beyond products. We forge legacies.
+                            </p>
+                            <div className="flex justify-center gap-4">
+                                <button className="rounded-full bg-forge-orange px-8 py-4 font-bold text-black transition-transform hover:scale-105 active:scale-95">
+                                    Enter the Lab
+                                </button>
+                                <button className="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-bold backdrop-blur-sm transition-colors hover:bg-white/10">
+                                    Our Ecosystem
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
                 </section>
 
-                {/* Brand Grid */}
-                <section className="mt-24 mx-auto max-w-7xl px-6">
-                    <div className="mb-12 flex items-end justify-between">
+                {/* Services Section */}
+                <section id="services" className="mx-auto max-w-7xl px-6 py-32">
+                    <div className="mb-20 grid items-end gap-8 md:grid-cols-2">
                         <div>
-                            <h2 className="mb-2 text-3xl font-bold font-sora">The Ecosystem</h2>
-                            <p className="text-gray-400">Current active forgings and upcoming developments.</p>
+                            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-forge-orange">The Forge</h2>
+                            <h3 className="font-sora text-4xl font-bold md:text-5xl">Our Core Expertise.</h3>
                         </div>
+                        <p className="text-lg text-gray-400 leading-relaxed">
+                            We don't provide services; we install capabilities. Each area of expertise is a precision tool designed to maximize your digital leverage.
+                        </p>
                     </div>
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {brands.map((brand, idx) => (
-                            <BrandCard key={idx} {...brand} />
+                    <div className="grid gap-6 sm:grid-cols-2">
+                        {services.map((service, idx) => (
+                            <ServiceCard key={idx} {...service} />
                         ))}
                     </div>
                 </section>
 
-                {/* Vision Statement */}
-                <section className="mt-40 border-y border-white/5 bg-forge-deep/30 py-24">
+                {/* Ecosystem Section */}
+                <section id="ecosystem" className="bg-forge-deep/50 py-32">
+                    <div className="mx-auto max-w-7xl px-6">
+                        <div className="mb-16 text-center">
+                            <h2 className="mb-3 font-sora text-4xl font-bold">The Brand Network</h2>
+                            <p className="text-gray-400">Current forgings active in the global market.</p>
+                        </div>
+                        <div className="grid gap-6 md:grid-cols-3">
+                            {brands.map((brand, idx) => (
+                                <BrandCard key={idx} {...brand} />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Process Section */}
+                <section id="process" className="mx-auto max-w-7xl px-6 py-40">
+                    <div className="relative">
+                        <div className="mb-24 text-center">
+                            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-forge-orange">The Method</h2>
+                            <h3 className="font-sora text-4xl font-bold md:text-5xl">How We Forge.</h3>
+                        </div>
+
+                        <div className="grid gap-12 md:grid-cols-4">
+                            {[
+                                { step: "01", name: "Extraction", text: "Isolating raw data and vision from the noise." },
+                                { step: "02", name: "Purification", text: "Refining core concepts into actionable blueprints." },
+                                { step: "03", name: "The Forge", name_nl: "Smeden", text: "Intensive development and intelligent automation." },
+                                { step: "04", name: "Launch", text: "Releasing the finished master into the wild." }
+                            ].map((p, idx) => (
+                                <div key={idx} className="relative">
+                                    <div className="mb-6 text-6xl font-bold text-white/5 font-sora leading-none">{p.step}</div>
+                                    <h4 className="mb-3 text-xl font-bold text-forge-orange">{p.name}</h4>
+                                    <p className="text-gray-400">{p.text}</p>
+                                    {idx < 3 && <ChevronRight className="absolute -right-6 top-12 hidden text-white/10 md:block" />}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Final Quote */}
+                <section className="relative overflow-hidden border-y border-white/5 py-40">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forge-orange/[0.03] to-transparent" />
                     <div className="mx-auto max-w-5xl px-6 text-center">
-                        <blockquote className="font-sora text-3xl font-medium italic text-white/90 leading-relaxed md:text-4xl">
-                            "We don't just build websites; we forge identities that endure the heat of competition."
-                        </blockquote>
+                        <motion.blockquote
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            className="font-sora text-4xl font-medium italic text-white/95 leading-snug md:text-6xl"
+                        >
+                            "We don't just build websites; we forge <span className="text-forge-orange not-italic">identities</span> that endure the heat of competition."
+                        </motion.blockquote>
                     </div>
                 </section>
             </main>
 
             {/* Footer */}
-            <footer className="border-t border-white/5 py-12">
-                <div className="mx-auto max-w-7xl px-6 text-center">
-                    <div className="mb-4 font-sora font-bold">FORGELAB DIGITAL</div>
-                    <p className="text-sm text-gray-500">© 2026 Crafted in the Lab. All rights reserved.</p>
+            <footer className="border-t border-white/5 py-20">
+                <div className="mx-auto max-w-7xl px-6">
+                    <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+                        <div className="text-center md:text-left">
+                            <div className="mb-2 font-sora text-xl font-bold">FORGELAB <span className="text-forge-orange">DIGITAL</span></div>
+                            <p className="text-sm text-gray-500">Expanding the boundaries of digital alchemy.</p>
+                        </div>
+                        <div className="flex gap-12 text-sm font-medium text-gray-400">
+                            <div>
+                                <h5 className="mb-4 text-white">Lab</h5>
+                                <ul className="space-y-2">
+                                    <li><a href="#" className="hover:text-forge-orange">Portfolio</a></li>
+                                    <li><a href="#" className="hover:text-forge-orange">AI Tools</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="mb-4 text-white">Legal</h5>
+                                <ul className="space-y-2">
+                                    <li><a href="#" className="hover:text-forge-orange">Privacy</a></li>
+                                    <li><a href="#" className="hover:text-forge-orange">Terms</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-20 text-center text-xs text-gray-600">
+                        © 2026 Forgelab Digital. Hand-forged in the Laboratory.
+                    </div>
                 </div>
             </footer>
         </div>

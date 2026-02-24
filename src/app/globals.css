@@ -6,21 +6,25 @@
 }
 
 :root {
-  --background: #080808;
+  --background: #020202;
   --foreground: #ffffff;
   --forge-orange: #FF5F1F;
-  --forge-gray-deep: #121212;
-  --forge-gray-glow: #1a1a1a;
-  --forge-steel: #2C2C2C;
+  --forge-orange-dim: #92340d;
+  --forge-gray-deep: #0a0a0a;
+  --forge-gray-glow: #111111;
+  --forge-steel: #1a1a1a;
+  --forge-chrome: #262626;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-forge-orange: var(--forge-orange);
+  --color-forge-orange-dim: var(--forge-orange-dim);
   --color-forge-deep: var(--forge-gray-deep);
   --color-forge-glow: var(--forge-gray-glow);
   --color-forge-steel: var(--forge-steel);
+  --color-forge-chrome: var(--forge-chrome);
   --font-sora: 'Sora', sans-serif;
 }
 
@@ -29,23 +33,60 @@ body {
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
-h1, h2, h3, h4, .font-forge {
+/* Texture Overlays */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 9999;
+  filter: contrast(120%) brightness(120%);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-forge {
   font-family: 'Sora', sans-serif;
+  letter-spacing: -0.02em;
 }
 
-/* Glassmorphism helpers */
+/* Liquid Light & Chrome Effects */
 .glass {
-  background: rgba(26, 26, 26, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.chrome-border {
+  border: 1px solid;
+  border-image-source: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
+  border-image-slice: 1;
 }
 
 .forge-glow {
-  box-shadow: 0 0 30px rgba(255, 95, 31, 0.15);
+  box-shadow: 0 0 50px rgba(255, 95, 31, 0.08);
 }
 
 .forge-text-glow {
-  text-shadow: 0 0 15px rgba(255, 95, 31, 0.4);
+  text-shadow: 0 0 20px rgba(255, 95, 31, 0.5);
+}
+
+.liquid-gradient {
+  background: linear-gradient(135deg, #FF5F1F 0%, #FF8C00 50%, #FF4500 100%);
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.mask-fade {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
