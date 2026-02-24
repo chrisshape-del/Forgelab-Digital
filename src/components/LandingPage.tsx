@@ -131,7 +131,7 @@ export default function LandingPage() {
 
             <main className="relative">
                 {/* Cyberpunk Hero Section */}
-                <section className="relative flex min-h-[100svh] flex-col items-center justify-start overflow-hidden bg-background pb-20 pt-[18vh]">
+                <section className="relative flex min-h-[100svh] flex-col items-center justify-between overflow-hidden bg-background pb-12 pt-[18vh]">
 
                     {/* The Full Background Logo - Blended seamlessly */}
                     <div className="absolute inset-0 z-0 bg-background">
@@ -150,10 +150,8 @@ export default function LandingPage() {
                         <div className="absolute top-0 h-[50vh] w-full bg-gradient-to-b from-background/90 via-background/40 to-transparent" />
                     </div>
 
-                    {/* Subtitle & CTAs (Overlaid at the top) */}
-                    <div className="relative z-20 mx-auto max-w-7xl px-6 text-center">
-                        <div className="absolute left-1/2 top-1/2 -z-10 h-[300px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-forge-neon-blue/10 blur-[100px]" />
-
+                    {/* Top Content (Badge) */}
+                    <div className="relative z-20 mx-auto w-full max-w-7xl px-6 text-center pt-8">
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -161,11 +159,22 @@ export default function LandingPage() {
                         >
                             <h1 className="sr-only">FORGELAB DIGITAL</h1>
 
-                            <div className="mb-8 inline-flex items-center gap-2 rounded-lg border border-forge-neon-blue/30 bg-[#0A1933]/60 backdrop-blur-md px-6 py-2 text-xs font-bold uppercase tracking-widest text-forge-neon-blue shadow-[0_0_15px_rgba(0,255,255,0.15)]">
+                            <div className="inline-flex items-center gap-2 rounded-lg border border-forge-neon-blue/30 bg-[#0A1933]/60 px-6 py-2 text-xs font-bold uppercase tracking-widest text-forge-neon-blue shadow-[0_0_15px_rgba(0,255,255,0.15)] backdrop-blur-md">
                                 <Terminal size={14} /> <span>System Online // Forging Legacies</span>
                             </div>
+                        </motion.div>
+                    </div>
 
-                            <p className="mx-auto mb-10 max-w-3xl text-xl font-medium text-forge-highlight leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    {/* Bottom Content (Text & Buttons) */}
+                    <div className="relative z-20 mx-auto w-full max-w-7xl px-6 text-center pb-10">
+                        <div className="absolute left-1/2 top-1/2 -z-10 h-[300px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-forge-neon-blue/5 blur-[100px]" />
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+                        >
+                            <p className="mx-auto mb-10 max-w-3xl text-xl font-medium leading-relaxed text-forge-highlight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                                 The laboratory where high-performance systems and market-dominating
                                 digital identities are hammered into reality.
                             </p>
