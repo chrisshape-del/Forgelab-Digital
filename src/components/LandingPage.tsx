@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Hammer, Sparkles, Binary, Zap, ExternalLink, Cpu, BarChart3, Rocket, Layers, ChevronRight, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Header from "./Header";
 
 const ServiceCard = ({ title, description, icon: Icon, highlight = "blue" }: any) => {
     const isOrange = highlight === "orange";
@@ -115,19 +116,8 @@ export default function LandingPage() {
 
     return (
         <div className="min-h-screen bg-background text-foreground selection:bg-forge-neon-blue/30 selection:text-forge-neon-blue">
-            {/* Header / Nav */}
-            <nav className="fixed top-0 z-50 w-full border-b border-forge-neon-blue/10 bg-background/80 backdrop-blur-md">
-                <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-                    <div className="flex items-center gap-3 font-sora text-xl font-bold tracking-tighter">
-                        <span className="hidden sm:inline text-white">FORGELAB <span className="neon-text-blue">DIGITAL</span></span>
-                    </div>
-                    <div className="flex gap-8 text-sm font-medium text-forge-highlight/80">
-                        <a href="#services" className="transition-colors hover:neon-text-blue hover:text-forge-neon-blue">Expertise</a>
-                        <a href="#ecosystem" className="transition-colors hover:neon-text-orange hover:text-forge-neon-orange">Network</a>
-                        <a href="#process" className="transition-colors hover:neon-text-blue hover:text-forge-neon-blue">Protocol</a>
-                    </div>
-                </div>
-            </nav>
+            {/* Premium GSAP Header */}
+            <Header />
 
             <main className="relative">
                 {/* Cyberpunk Hero Section */}
