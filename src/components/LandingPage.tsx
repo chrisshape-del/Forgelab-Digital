@@ -131,7 +131,7 @@ export default function LandingPage() {
 
             <main className="relative">
                 {/* Cyberpunk Hero Section */}
-                <section className="relative flex min-h-[100svh] flex-col items-center justify-between overflow-hidden bg-background pb-12 pt-[18vh]">
+                <section className="relative flex min-h-[100svh] flex-col items-center justify-end overflow-hidden bg-background pb-12 pt-[18vh]">
 
                     {/* The Full Background Logo - Blended seamlessly */}
                     <div className="absolute inset-0 z-0 bg-background">
