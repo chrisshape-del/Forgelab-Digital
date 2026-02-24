@@ -90,3 +90,33 @@ h4,
 .mask-fade {
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
+
+/* Cinematic Hero Effects */
+.metallic-bg {
+  background: linear-gradient(to bottom, #111 0%, #050505 100%);
+  position: relative;
+}
+
+.spotlight {
+  position: absolute;
+  top: 0;
+  width: 60vw;
+  height: 50vh;
+  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.spotlight.left {
+  left: -10vw;
+}
+
+.spotlight.right {
+  right: -10vw;
+}
+
+.chrome-text {
+  background: linear-gradient(to bottom, #ffffff 0%, #888888 50%, #222222 51%, #aaaaaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+}
